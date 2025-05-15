@@ -3,6 +3,7 @@ import "./App.css";
 import HomeAdmin from "./pages/homeAdmin";
 import Home from "./pages/home";
 import AdminLayout from "./components/layout-siderbar";
+import Barbeiros from "./pages/barbeiros";
 
 function App() {
   return (
@@ -14,6 +15,14 @@ function App() {
           element={
             <AdminLayout>
               <HomeAdmin />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path="/barbeiros"
+          element={
+            <AdminLayout>
+              <Barbeiros />
             </AdminLayout>
           }
         />

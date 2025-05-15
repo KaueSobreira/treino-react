@@ -1,7 +1,7 @@
 import AdminLayout from "@/components/layout-siderbar";
 
 const HomeAdmin = () => {
-  return <AdminLayout></AdminLayout>;
+  return <h1>ee</h1>;
 };
 
 export default HomeAdmin;
