@@ -30,7 +30,7 @@ const items = [
     url: "#",
     icon: PersonStanding,
     subItems: [
-      { title: "Barbeiros", url: "/funcionarios" },
+      { title: "Barbeiros", url: "/barbeiros" },
       { title: "Serviços", url: "/serviços" },
     ],
   },
@@ -60,7 +60,7 @@ export function AppSidebar() {
             </div>
           </div>
 
-          <SidebarGroupContent>
+          <SidebarGroupContent className="pt-4">
             <SidebarMenu>
               {items.map((item) => {
                 const Icon = item.icon;
@@ -70,9 +70,9 @@ export function AppSidebar() {
                     <SidebarMenuItem className="!bg-transparent !shadow-none !border-0 !ring-0">
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton className="!bg-transparent !border-0">
-                          <div className="flex items-center space-x-2 text-indigo-500">
-                            {Icon && <Icon className="w-4 h-4" />}
-                            <span>{item.title}</span>
+                          <div className="flex items-center space-x-2 text-xl bg-indigo-500 hover:bg-indigo-400 rounded-sm w-full">
+                            {Icon && <Icon className="w-4 h-4 text-white" />}
+                            <span className="text-white">{item.title}</span>
                           </div>
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
@@ -80,13 +80,10 @@ export function AppSidebar() {
                       <CollapsibleContent className="!bg-transparent">
                         <SidebarMenuSub className="!bg-transparent">
                           {item.subItems.map((sub) => (
-                            <SidebarMenuSubItem
-                              key={sub.title}
-                              className="bg-[color:var(--sidebar-background)] !shadow-none !border-0 !ring-0"
-                            >
+                            <SidebarMenuSubItem key={sub.title} className="">
                               <a
                                 href={sub.url}
-                                className="block px-4 py-1 text-sm text-[color:var(--sidebar-foreground)] hover:underline"
+                                className="focus:outline-none focus:ring-0"
                               >
                                 {sub.title}
                               </a>
@@ -99,13 +96,15 @@ export function AppSidebar() {
                 ) : (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <a
-                        href={item.url}
-                        className="flex items-center space-x-2 text-[var(--cor-menu)]"
-                      >
-                        {Icon && <Icon className="w-4 h-4" />}
-                        <span>{item.title}</span>
-                      </a>
+                      <div className="pl-4 pr-4">
+                        <a
+                          href={item.url}
+                          className="flex items-center space-x-2 text-xl bg-indigo-500 hover:bg-indigo-400 rounded-sm w-full"
+                        >
+                          {Icon && <Icon className="w-4 h-4 text-white" />}
+                          <span className="text-white">{item.title}</span>
+                        </a>
+                      </div>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 );
